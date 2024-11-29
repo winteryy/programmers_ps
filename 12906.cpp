@@ -8,7 +8,7 @@ vector<int> solution(vector<int> arr)
     vector<int> answer;
 
     for(auto num: arr) {
-        if(answer.empty()) {
+        if(answer.empty() || answer[answer.size()-1]!=num) {
             answer.push_back(num);
         }
     }
