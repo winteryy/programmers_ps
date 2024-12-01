@@ -22,7 +22,7 @@ int solution(vector<vector<int>> jobs) {
         }
     };
 
-    priority_queue<Job, vector<Job>, decltype(cmp)> pq;
+    priority_queue<Job, vector<Job>, decltype(cmp)> pq(cmp);
     vector<Job> jobList;
 
     for(int i=0; i<jobs.size(); i++) {
