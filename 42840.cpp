@@ -15,8 +15,8 @@ vector<int> solution(vector<int> answers) {
     
     for(int i=0; i<answers.size(); i++) {
         if(p1.first[i%p1.second]==answers[i]) cnt[0]++;
-        if(p2.first[i%p1.second]==answers[i]) cnt[1]++;
-        if(p3.first[i%p1.second]==answers[i]) cnt[2]++;
+        if(p2.first[i%p2.second]==answers[i]) cnt[1]++;
+        if(p3.first[i%p3.second]==answers[i]) cnt[2]++;
     }
 
     int maxNum = max(cnt[0], max(cnt[1], cnt[2]));
