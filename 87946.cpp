@@ -9,10 +9,8 @@ int result = 0;
 bool used[8];
 
 void dfs(vector<vector<int> >& dungeons, int depth, int remain) {
-    if(depth==dgSize) return;
-    
     if(remain>=0) {
-        result = max(result, depth+1);
+        result = max(result, depth);
     } else {
         return;
     }
