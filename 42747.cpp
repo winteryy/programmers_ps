@@ -12,6 +12,8 @@ int solution(vector<int> citations) {
     for(int i=0; i<citations.size(); i++) {
         if(citations[i]>=i+1) {
             answer = i+1;
+        } else {
+            break;
         }
     }
     
