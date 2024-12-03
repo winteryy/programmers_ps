@@ -25,7 +25,7 @@ int solution(int n, vector<int> lost, vector<int> reserve) {
             targetNum = num;
         } else if(reserveList[num-1]) {
             targetNum = num-1;
-        } else if(num<n-1 && reserveList[num+1] && !lostList[num+1]) {
+        } else if(num<n && reserveList[num+1] && !lostList[num+1]) {
             targetNum = num+1;
         }
 
