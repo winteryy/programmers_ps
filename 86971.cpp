@@ -14,15 +14,15 @@ public:
 
     Node(int n) {
         num = n;
-        depth = 0;
+        depth = 0;  
         subTreeSum = 1;
     }
 
     int dfs(int curDepth) {
         depth = curDepth;
+        isVisited[num] = true;
         for(auto child: children) {
             if(!isVisited[child->num]) {
-                isVisited[child->num] = true;
                 subTreeSum+=(child->dfs(curDepth+1));
             }
         }
@@ -57,8 +57,4 @@ int solution(int n, vector<vector<int>> wires) {
     }
 
     return answer;
-}
-
-int main() {
-    solution(9, {{1,3},{2,3},{3,4},{4,5},{4,6},{4,7},{7,8},{7,9}});
 }
