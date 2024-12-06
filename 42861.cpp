@@ -17,10 +17,10 @@ bool makeUnion(int x, int y) {
     int rootY = findRoot(y);
 
     if(rootX<rootY) {
-        root[y] = rootX;
+        root[rootY] = rootX;
         return true;
     } else if(rootX>rootY) {
-        root[x] = rootY;
+        root[rootX] = rootY;
         return true;
     } else {
         return false;
