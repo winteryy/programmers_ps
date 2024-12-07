@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#define INF 1'000'000'007
 
 using namespace std;
 
@@ -22,10 +23,10 @@ int solution(int m, int n, vector<vector<int>> puddles) {
             if(curY>n || curX>m || dp[curY][curX]==-1) continue;
 
             if(curY<n && dp[curY+1][curX]!=-1) {
-                dp[curY+1][curX] += dp[curY][curX];
+                dp[curY+1][curX] = (dp[curY+1][curX] + dp[curY][curX]) % INF;
             }
             if(curX<m && dp[curY][curX+1]!=-1) {
-                dp[curY][curX+1] += dp[curY][curX];
+                dp[curY][curX+1] = (dp[curY][curX+1] + dp[curY][curX]) % INF;
             } 
         }
     }
