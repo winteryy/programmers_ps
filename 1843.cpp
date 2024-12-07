@@ -20,13 +20,14 @@ int solution(vector<string> arr)
     for(int i=2; i<=cnt; i++) { //구간 길이
         for(int j=0; j+i<=cnt; j++) { //시작점
             for(int k=0; k<i-1; k++) { //분할점
-                int leftEnd = j+k;
-                if(arr[leftEnd*2+1][0]=='+') {
-                    minDp[j][j+i-1] = min(minDp[j][j+i-1], minDp[j][leftEnd] + minDp[leftEnd+1][j+i-1]);
-                    maxDp[j][j+i-1] = max(maxDp[j][j+i-1], maxDp[j][leftEnd] + maxDp[leftEnd+1][j+i-1]);
+                int halfEnd = j+k;
+                int endPoint = j+i-1;
+                if(arr[halfEnd*2+1][0]=='+') {
+                    minDp[j][endPoint] = min(minDp[j][endPoint], minDp[j][halfEnd] + minDp[halfEnd+1][endPoint]);
+                    maxDp[j][endPoint] = max(maxDp[j][endPoint], maxDp[j][halfEnd] + maxDp[halfEnd+1][endPoint]);
                 } else {
-                    minDp[j][j+i-1] = min(minDp[j][j+i-1], minDp[j][leftEnd] - maxDp[leftEnd+1][j+i-1]);
-                    maxDp[j][j+i-1] = max(maxDp[j][j+i-1], maxDp[j][leftEnd] - minDp[leftEnd+1][j+i-1]);
+                    minDp[j][endPoint] = min(minDp[j][endPoint], minDp[j][halfEnd] - maxDp[halfEnd+1][endPoint]);
+                    maxDp[j][endPoint] = max(maxDp[j][endPoint], maxDp[j][halfEnd] - minDp[halfEnd+1][endPoint]);
                 }
             }
         }
